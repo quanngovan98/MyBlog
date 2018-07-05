@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block categories %}
+
+  <div class="dropdown">
+  <button class="dropbtn">Category</button>
+  <div class="dropdown-content">
+  	{% for category in Categories %}
+		<a href="{% url 'postcategory' category.name %}">{{category.name}}</a>
+	{% endfor %}
+  </div>
+  </div>
+{% endblock %}
+{% block content %}
+<div class="post">
+				<!-- Heading -->
+				<a href="#"><h2>{{POSTID.title}}</h2></a>
+				<hr>
+				<div class="in-content">
+					<h1>{{POSTID.body|safe}}</h1>
+					<img src="{{POSTID.image.url}}" alt="">
+				</div>
+				<div class="foot-post">
+					<div class="units-row">
+					    <div class="unit-100">
+					    	<strong>Tags:</strong>
+					    	{% for tag in POSTID.tags.all %}
+					    		<a href="#">{{tag.name}}</a>
+					    	{% endfor %}
+					    </div>
+					    <div class="unit-100">
+					    	<strong>COMMENTS:</strong> 
+					    	<a href="#">3</a>
+					    </div>
+					</div>
+				</div>
+</div>
+<h4 style="color:gray";>RELATED POST:</h4>
+{% for relatedpost  in POSTID.tags.similar_objects %}
+	<a style="color:gray;text-decoration: none;" href="{% url 'postid' relatedpost.category relatedpost.slugifytitle %}">  - {{relatedpost.title}}</a><br>
+{% endfor %}
+<br>
+{% endblock %}

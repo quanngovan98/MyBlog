@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block categories %}
+
+  <div class="dropdown">
+  <button class="dropbtn">Category</button>
+  <div class="dropdown-content">
+  	{% for category in Categories %}
+		<a href="{% url 'postcategory' category.name %}">{{category.name}}</a>
+	{% endfor %}
+  </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+<div class="post">
+	{% for post in Posts %}
+				<!-- Heading -->
+				<a href="#"><h2>{{post.title}}</h2></a>
+				<hr>
+				<div class="in-content">
+					<p>
+						{{post.body}}
+					</p>
+					<a class="read-more" href="/{{post.category}}/{{post.id}}">Read more</a>
+				</div>
+				<div class="foot-post">
+					<div class="units-row">
+					    <div class="unit-100">
+					    	<strong>Tags:</strong>
+					    	<a href="#">Galaxy</a>,
+					    	<a href="#">Human</a>,
+					    	<a href="#">World</a>,
+					    </div>
+					    <div class="unit-100">
+					    	<strong>COMMENTS:</strong> 
+					    	<a href="#">3</a>
+					    </div>
+					</div>
+				</div>
+	{% endfor %}
+</div>
+<h4>CONTACT</h4>
+{% endblock %}
+

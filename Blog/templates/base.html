@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Saturn by @flamekaizar</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Saturn is free PSD &amp; HTML template by @flamekaizar">
+    <meta name="author" content="Afnizar Nur Ghifari">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{% static 'css/kube.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/custom.min.css' %}" />
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" />
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<!-- Navigation -->
+	<div class="main-nav">
+		<div class="container">
+			<header class="group top-nav">
+				<nav class="navbar logo-w navbar-left" >
+					<a class="logo" href="/">Saturn</a>
+				</nav>
+				<div class="navigation-toggle" data-tools="navigation-toggle" data-target="#navbar-1">
+				    <span class="logo">Saturn</span>
+				</div>
+			    <nav id="navbar-1" class="navbar item-nav navbar-right ">
+				    <ul>
+				    	<li>
+				    		{% block categories %}{% endblock %}
+				    	</li>				    	
+				        <li><a href="/">Home</a></li>
+				        <li><a href="/about.html" >About</a></li>
+				        <li><a href="/archive.html/" >Archive</a></li>
+				        <li><a href="/contact.html" >Contact</a></li>
+
+				    </ul>
+				</nav>
+			</header>
+		</div>
+	</div>
+
+	<!-- Introduction -->
+	<div class="intro">
+		<div class="container">
+			<div class="units-row">
+			    <div class="unit-10">
+			    	<img class="img-intro" src="{% static 'img/avatar1.png' %}" alt="">
+			    </div>
+			    <div class="unit-90">
+			    	<p class="p-intro">Hello, I’m AprilNgo. I’m proud to be a part of hacker way.</p>
+			    </div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Content -->
+	<div class="content">
+		<div class="container">
+			<!-- Post -->
+			{% block content %}{% endblock %}
+			<!-- /post -->
+		</div>
+	</div>
+
+	<footer>
+		<div class="container">
+			<div class="units-row">
+			    <div class="unit-50">
+			    	<button class="btn btn-black"><i class="fa fa-arrow-left"></i> PREVIOUS</button>
+			    </div>
+			    <div class="unit-50">
+					<ul class="social list-flat right">
+						<li><a href="mailto:afnizarhilmi@gmail.com"><i class="fa fa-send"></i></a></li>
+						<li><a href="http://twitter.com/flamekaizar"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="http://dribbble.com/flamekaizar"><i class="fa fa-dribbble"></i></a></li>
+						<li><a href="http://behance.com/flamekaizar"><i class="fa fa-behance"></i></a></li>
+					</ul>
+			    </div>
+			</div>
+			<p class="text-centered foot-cp">
+	    		<a href="#">handcrafted by @ngoapril</a>
+	    	</p>
+	    	<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Your customer chat code -->
+<div class="fb-customerchat"
+  attribution=setup_tool
+  page_id="364185770775605">
+</div>
+		</div>
+	</footer>
+
+	<!-- Javascript -->
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/kube.min.js' %}"></script>
+    <script src="{% static 'js/dropdown.js' %}"></script>
+
+</body>
+
+</html>
